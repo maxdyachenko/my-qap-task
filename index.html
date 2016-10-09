@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="utf-8"/>
+	<title>Your Test</title>
+</head>
+<body>
+<header>
+	<div class="block_behind">
+		<div class="header_content">
+			<div class="logo"><a href="#"><img alt="logo" src="images/logo.png"></a></div>
+		</div>
+	</div>
+</header>
+
+<section id="content">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<section class="blocks">
+					<div class="block1_doc">
+						<div class="block_header">	
+							<div class="block_image"></div>
+							<span class="block_title">Documents</span>
+						</div>
+						<div class="block1_content">
+							<ul data-bind="foreach: Documents">
+								<li>
+									<label class="checkbox"  data-bind="click:checkboxClick,css:{checked: check() == 1}">
+									    <span class="checkbox_wrapper">
+											<span class="checkbox_image"></span>
+										</span>	                    
+					                    	<span data-bind="text:name" class="checkbox_name" ></span>
+					                    	<span data-bind="text:description" class="additional_info"></span> 
+					            	</label>
+								</li>							
+							</ul>
+						</div>
+						<span class="text_addall" data-bind="click:selectAllDocuments,text: textAddRemoveAllDocs"></span>
+					</div>
+
+					<div class="block2_link">
+						<div class="block_header">
+							<div class="block_image"></div>	
+							<span class="block_title">Links</span>
+						</div>
+						<div class="block2_content">
+							<ul data-bind="foreach: Links">
+								<li>
+									<label class="checkbox" data-bind="click:checkboxClick,css:{checked: check() == 1}">
+									    <span class="checkbox_wrapper">
+											<span class="checkbox_image"></span>
+										</span>
+					                    
+					                    	<span data-bind="text:name" class="checkbox_name" ></span>
+					                    	<span data-bind="text:description" class="additional_info"></span>
+
+					            	</label>
+								</li>
+							</ul>
+						</div>
+						<span class="text_addall" data-bind="click:selectAllLinks,text: textAddRemoveAllLinks"></span>
+					</div>
+
+					<div class="block3_science">
+						<div class="block_header">
+							<div class="block_image"></div>	
+							<span class="block_title">Science Lab</span>
+						</div>
+						<div class="block3_content">
+							<ul data-bind="foreach: Science">
+								<li>
+									<label class="checkbox" data-bind="click:checkboxClick,css:{checked: check() == 1}">
+									    <span class="checkbox_wrapper">
+											<span class="checkbox_image"></span>
+										</span>
+					                    	<span data-bind="text:name" class="checkbox_name" ></span>
+					                    	<span data-bind="text:description" class="additional_info"></span>
+					            	</label>
+								</li>
+							</ul> 
+						</div>
+						<span class="text_addall" data-bind="click:selectAllScience,text: textAddRemoveAllScience" ></span>
+					</div>	
+				</section>
+			</div>
+			<div class="swiper-slide">
+				<div class="block_email">
+					<div class="block_header">
+						<div class="block_image">
+						</div>
+					</div>
+
+					<div class="content_email">
+						<div class="form_email">
+							<input type="text" id="name" data-bind="value:userName"/>
+							<label for="name" class="label_name">Name</label>
+							<input type="text" id="email" data-bind="value:userEmail"/>
+							<label for="email" class="label_email" >Email</label>
+							
+							<input type="text" id="message" placeholder="Message text..." data-bind="value:userMessage"/>
+						</div>
+						<div  data-bind="if: countChecked()> 0">
+							<span class="count_items" data-bind="text:countChecked()"></span><span class="count_text" data-bind="if: countChecked()==1"> attached link </span><span class="count_text" data-bind="if: countChecked()>1"> attached links</span>
+						</div>
+
+						<div class="attached_items_wrapper"> 
+							<div class="attached_items">
+								<ul data-bind="foreach: arrAttachedItems">
+									<li>
+										<span class="icon_wrapper">
+											<span class="icon_image" data-bind="css:id"></span>
+										</span>
+										
+											<div class="text_field">
+											<span  data-bind="text: name"></span>,
+											<span  data-bind="text: description"></span>
+										</div>
+										<span class="icon_image_delete" data-bind="click:$root.removeSelected"></span>
+										
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<span class="send_button" data-bind="click:sendForm">send</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="swiper-pagination"></div>
+
+
+
+<script src="js/libs/knockout-3.4.js"></script>
+<script src="js/libs/swiper.min.js"></script>
+<script src="js/view.js"></script>
+<script src="js/viewmodel.js"></script>
+
+
+</body>
+</html>
